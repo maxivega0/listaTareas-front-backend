@@ -8,7 +8,7 @@ import ItemTarea from "./ItemTarea";
 
 
 
-const ListaTareas = () => {
+const ListaTareas = ({cargar, setCargar}) => {
   const [tareas, setTareas] = useState([]);
 
   useEffect(() => {
@@ -17,6 +17,7 @@ const ListaTareas = () => {
       //todo: preguntar si la respuesta tiene
       if (respuesta) {
         setTareas(respuesta);
+        setCargar(false)
       } else {
         Swal.fire(
           "Error",
@@ -25,7 +26,7 @@ const ListaTareas = () => {
         );
       }
     });
-  }, []);
+  }, [cargar]);
 
   // Envio nuevamente el prop al siguiente hijo itemtarea
   return (
