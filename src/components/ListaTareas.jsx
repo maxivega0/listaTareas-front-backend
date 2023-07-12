@@ -10,7 +10,6 @@ const ListaTareas = ({ cargar, setCargar }) => {
   const [tareas, setTareas] = useState([]);
 
   useEffect(() => {
-    //consultar a la api y guardar la respuesta en el state
     obtenerListaTareas().then((respuesta) => {
       //todo: preguntar si la respuesta tiene
       if (respuesta) {
@@ -25,13 +24,9 @@ const ListaTareas = ({ cargar, setCargar }) => {
       }
     });
   }, [cargar]);
-
-  // Envio nuevamente el prop al siguiente hijo itemtarea
   return (
     <ListGroup>
       {
-        // Usamos el "map" xq crea un metodo en el array que es inmutable, como el prop
-        // tarea para indicar los elementos de nuestro array tareas
         tareas.map((tarea) => (
           <ItemTarea
             key={tarea._id}
@@ -39,7 +34,6 @@ const ListaTareas = ({ cargar, setCargar }) => {
             setTareas={setTareas}
           ></ItemTarea>
         ))
-        // segundo argumento del map, es el indice del array
       }
     </ListGroup>
   );

@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { crearTarea } from "../helpers/queries";
 import Swal from "sweetalert2";
 
-// Use effect ciclo de vida componentes
 
 const FormularioTarea = () => {
   const [cargar, setCargar] = useState(false);
@@ -36,9 +35,6 @@ const FormularioTarea = () => {
         );
       }
     });
-    // then implica lo siguiente: yo ejecutare una funcion, una vez que se ejecute iniciar sesion, espera que se ejecute y entonces, realiza lo siguiente
-    // respuesta es una variable inventada que va a contener el return de "inciarSesion"
-
     reset();
   };
 
@@ -68,10 +64,7 @@ const FormularioTarea = () => {
           Agregar
         </Button>
       </Form>
-      {/* Usamos el mismo nombre del prop con el objeto a enviar */}
-      {/* Lo de la izquierda es el prop, y lo de la derecha es el state */}
       <ListaTareas cargar={cargar} setCargar={setCargar}></ListaTareas>
-      {/* Envio el prop de fucion */}
     </>
   );
 };

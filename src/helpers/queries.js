@@ -1,17 +1,16 @@
 const URL_tareas = import.meta.env.VITE_API_TAREA
+// direccion api: VITE_API_TAREA=http://localhost:4005/apitareas/tareas 
 
 export const crearTarea = async (tarea) => {
     try {
-      // Una peticion post necesita un 2do argumento, sera el metodo que elegí
       const respuesta = await fetch(URL_tareas, {
         method: "POST",
         headers: {
-          // Lineas en formato JSON
           "Content-Type": "application/json",
         },
         body: JSON.stringify(tarea),
       });
-      return respuesta; // el status de la respuesta es 201
+      return respuesta; 
     } catch (error) {
       console.log(error);
     }
@@ -19,9 +18,7 @@ export const crearTarea = async (tarea) => {
 
   export const obtenerListaTareas = async () => {
     try {
-      // Cuando vea que en una peticion fetch hay un solo argumento, es xq es una peticion GET
       const respuesta = await fetch(URL_tareas);
-      // console.log(respuesta);
       const listaTareas = await respuesta.json();
       return listaTareas;
     }catch (error) {
@@ -31,11 +28,10 @@ export const crearTarea = async (tarea) => {
 
   export const eliminarTarea = async (id) => {
     try {
-      // Una peticion post necesita un 2do argumento, sera el metodo que elegí
       const respuesta = await fetch(URL_tareas + "/" + id, {
         method: "DELETE",
       });
-      return respuesta; // el status de la respuesta es 200
+      return respuesta;
     } catch (error) {
       console.log(error);
     }
