@@ -2,15 +2,13 @@ import { Form, Button } from "react-bootstrap";
 import ListaTareas from "./ListaTareas";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { crearTarea,  } from "../helpers/queries";
+import { crearTarea } from "../helpers/queries";
 import Swal from "sweetalert2";
-
 
 // Use effect ciclo de vida componentes
 
 const FormularioTarea = () => {
-
-  const [cargar, setCargar] = useState(false)
+  const [cargar, setCargar] = useState(false);
 
   const {
     register,
@@ -29,7 +27,7 @@ const FormularioTarea = () => {
           "success"
         );
         reset();
-        setCargar(true)
+        setCargar(true);
       } else {
         Swal.fire(
           "Ocurrio un error!",
@@ -44,11 +42,10 @@ const FormularioTarea = () => {
     reset();
   };
 
-
   return (
     <>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Group className="mb-3" controlId="formTarea">
+      <Form onSubmit={handleSubmit(onSubmit)} className="row">
+        <Form.Group className="mb-3" controlId="formTarea">
           <Form.Label>Tarea*</Form.Label>
           <Form.Control
             type="text"
@@ -65,13 +62,11 @@ const FormularioTarea = () => {
               },
             })}
           />
-          <Form.Text className="text-danger">
-            {errors.tarea?.message}
-          </Form.Text>
+          <Form.Text className="text-danger">{errors.tarea?.message}</Form.Text>
         </Form.Group>
-          <Button variant="primary" type="submit">
-            Agregar
-          </Button>
+        <Button variant="primary" type="submit" className=" mb-4">
+          Agregar
+        </Button>
       </Form>
       {/* Usamos el mismo nombre del prop con el objeto a enviar */}
       {/* Lo de la izquierda es el prop, y lo de la derecha es el state */}

@@ -6,9 +6,7 @@ import Swal from "sweetalert2";
 import { obtenerListaTareas } from "../helpers/queries";
 import ItemTarea from "./ItemTarea";
 
-
-
-const ListaTareas = ({cargar, setCargar}) => {
+const ListaTareas = ({ cargar, setCargar }) => {
   const [tareas, setTareas] = useState([]);
 
   useEffect(() => {
@@ -17,7 +15,7 @@ const ListaTareas = ({cargar, setCargar}) => {
       //todo: preguntar si la respuesta tiene
       if (respuesta) {
         setTareas(respuesta);
-        setCargar(false)
+        setCargar(false);
       } else {
         Swal.fire(
           "Error",

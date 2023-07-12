@@ -47,18 +47,11 @@ const ItemTarea = ({ tarea, setTareas }) => {
 
   return (
     <ListGroup.Item className="d-flex justify-content-between">
-      <div>
       {tarea.tarea}
-      </div>
-      <div>
       {/* Como "borrarTarea" lleva parametros, no puedo escribirla de manera "limpia" sin parametros, para que una funcion anonima lleve argumentos tengo que llamar otra funcion */}
       <Button variant="danger" onClick={() => handleEliminarTarea()} className="text-end mx-2">
         Borrar
       </Button>
-      <Button variant="warning" className="text-end">
-        editar
-      </Button>
-      </div>
     </ListGroup.Item>
   );
 };
